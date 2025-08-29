@@ -13,12 +13,12 @@ import { NotificacionService } from '../services/notificacion.service';
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.scss'
 })
+
 export class ProductosComponent {
   
   private productosService = inject(ProductosService);
   private categoriasService = inject(CategoriasService);
   private dialogService = inject(DialogService);
-
   private notificacionService = inject(NotificacionService);
 
   columnas: string[]=['id', 'nombre', 'codigo', 'stock', 'precioCompra', 'precioVenta', 'categoriaId'];
@@ -37,7 +37,7 @@ export class ProductosComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Handle form submission
-        if (result.id) {
+        if (result.id && producto) {
           // Update existing product
           this.productosService.update(result);
           this.notificacionService.showUpdated('Producto', result.nombre);
@@ -59,7 +59,7 @@ export class ProductosComponent {
               try {
                 this.productosService.delete(producto.id!);
                 // Mostrar notificación de eliminación exitosa
-                this.notificacionService.showDeleted('producto', producto.nombre);
+                this.notificacionService.showDeleted('Producto', producto.nombre);
               } catch (error) {
                 this.notificacionService.showError('Error al eliminar la producto');
               }

@@ -28,9 +28,7 @@ export class BaseTableComponent<T> {
 
   ngAfterViewInit() {
     // Conectar el paginador al dataSource
-    if (this.paginator) {
-      this.dataSource.paginator = this.paginator;
-    }
+    this.dataSource.paginator = this.paginator;
   }
 
   get displayedColumns(): string[] {

@@ -4,6 +4,7 @@ import { AgregarComponent } from './agregar/agregar.component';
 import { ProductosComponent } from './productos/productos.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { IngresosComponent } from './ingresos/ingresos.component';
 
 export const routes: Routes = [
     {
@@ -28,7 +29,7 @@ export const routes: Routes = [
     },
     {
         path:'ingresos',
-        component:DashboardComponent
+        component:IngresosComponent
     },
     {
         path:'salidas',

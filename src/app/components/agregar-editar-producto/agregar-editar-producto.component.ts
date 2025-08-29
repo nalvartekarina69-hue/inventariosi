@@ -6,23 +6,29 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Categorias } from '../../categorias';
 import { Productos } from '../../productos';
+import { MatSelectModule } from '@angular/material/select';
+
 @Component({
   selector: 'app-agregar-editar-producto',
   imports: [MatButtonModule, MatDialogModule,
-    MatInputModule,ReactiveFormsModule],
+    MatInputModule,ReactiveFormsModule, MatSelectModule],
   templateUrl: './agregar-editar-producto.component.html',
   styleUrl: './agregar-editar-producto.component.scss'
 })
 export class AgregarEditarProductoComponent {
-public data = inject(MAT_DIALOG_DATA) as Productos;
+  
+  public data = inject(MAT_DIALOG_DATA) as Productos;
   private dialogRef = inject(MatDialogRef<AgregarEditarProductoComponent>);
   private fb = inject(FormBuilder);
   private categoriasService = inject(CategoriasService);
   
   columnas: string[] = ['nombre', 'codigo','precioVenta','precioCompra', 'stock','categoriaId'];
   form: FormGroup;
+  categorias: Categorias[] = [];
   
   constructor() {
+    this.categorias = this.categoriasService.categorias;
+
     this.form = this.fb.group({
       nombre: [this.data?.nombre || '', Validators.required],
       codigo: [this.data?.codigo || '', Validators.required],

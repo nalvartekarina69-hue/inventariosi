@@ -2,11 +2,21 @@
 <mat-dialog-content>
     <form [formGroup]="form">
         @for(column of columnas; track $index){
+            @if(column === 'categoriaId'){
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>{{column.slice(0, -2)}}</mat-label>
+                    <mat-select [formControlName]="column"> 
+                        @for(cat of categorias; track $index){
+                            <mat-option [value]="cat.id">{{cat.nombre}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            }@else{
         <mat-form-field appearance="outline" class="full-width">
-            <mat-label>{{column}}</mat-label>
+            <mat-label>{{ column}}</mat-label>
             <input matInput [formControlName]="column"/>                
         </mat-form-field>
-    }
+    }}
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

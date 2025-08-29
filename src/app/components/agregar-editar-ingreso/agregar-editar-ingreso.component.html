@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>{{data.id ? 'Editar' : 'Agregar'}} Ingreso</h2>
+<mat-dialog-content>
+    <form [formGroup]="form">
+        @for(column of columnas; track $index){
+            @if(column === 'productoId'){
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Producto</mat-label>
+                    <mat-select [formControlName]="column">
+                        @for(producto of productos; track producto.id){
+                            <mat-option [value]="producto.id">{{producto.nombre}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            }@else if(column === 'proveedorId'){
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Proveedor</mat-label>
+                    <mat-select [formControlName]="column">
+                        @for(proveedor of proveedores; track proveedor.id){
+                            <mat-option [value]="proveedor.id">{{proveedor.nombre}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            } @else if(column === 'categoriaId'){
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Categoría</mat-label>
+                    <mat-select [formControlName]="column">
+                        @for(categoria of categorias; track categoria.id){
+                            <mat-option [value]="categoria.id">{{categoria.nombre}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            } @else if(column === 'fecha'){
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Fecha</mat-label>
+                    <input matInput type="date" [formControlName]="column">
+                    
+                </mat-form-field>
+            } @else {
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>{{column}}</mat-label>
+                    <input matInput [formControlName]="column"/>                
+                </mat-form-field>
+            }
+        }
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button type="button" mat-flat-button mat-dialog-close>Cancelar</button>
+    <button type="button" mat-button color="primary" (click)="onSubmit()">
+        {{data.id ? 'Actualizar' : 'Agregar'}}
+    </button>
+</mat-dialog-actions>

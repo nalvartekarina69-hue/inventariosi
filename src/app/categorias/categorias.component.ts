@@ -13,6 +13,7 @@ import { AgregarEditarCategoriaComponent } from '../components/agregar-editar-ca
   styleUrl: './categorias.component.scss'
 })
 export class CategoriasComponent {
+  
   private categoriasService = inject(CategoriasService);
   private dialogService = inject(DialogService);
   private notificacionService = inject(NotificacionService);

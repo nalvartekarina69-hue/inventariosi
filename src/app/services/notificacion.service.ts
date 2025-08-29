@@ -84,7 +84,7 @@ export class NotificacionService {
   }
 
   // Confirmación específica para eliminar
-  confirmDelete(entity: string, entityName?: string): Observable<boolean> {
+  confirmDelete(entity: string , entityName?: string): Observable<boolean> {
     const message = entityName 
       ? `¿Estás seguro de que deseas eliminar ${entity.toLowerCase()} "${entityName}"?`
       : `¿Estás seguro de que deseas eliminar este ${entity.toLowerCase()}?`;

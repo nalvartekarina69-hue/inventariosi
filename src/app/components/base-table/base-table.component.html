@@ -9,8 +9,7 @@
     <div class="espacio"></div>
     <button mat-raised-button class="agregar" (click)="addItem.emit()"><mat-icon>note_add</mat-icon>Agregar</button>
     </mat-card-header>
-
-<mat-card-content>
+<div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     @for(column of columnas; track $index) {
         <ng-container [matColumnDef]="column">
@@ -47,10 +46,7 @@
         <td class="mat-cell" colspan="4">No se encontraron coincidencias con "{{ input.value }}"</td>
     </tr>
 </table>
-</mat-card-content>
-<mat-card-footer>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons>
-</mat-paginator>
-</mat-card-footer>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
 </mat-card>

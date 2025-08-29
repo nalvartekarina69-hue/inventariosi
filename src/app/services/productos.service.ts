@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Productos } from '../productos';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,7 +55,12 @@ get productos() {
 
  
 getDataSource(): MatTableDataSource<Productos>{
-  return new MatTableDataSource(this.productos); 
+  return this.dataSource
+}
+
+getProductoName(id: number): string {
+  const product = this._productos().find(p => p.id === id);
+  return product ? product.nombre : '';
 }
 
 update(producto: Productos): void {

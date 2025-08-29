@@ -1,10 +1,10 @@
 <app-base-table
-      titulo="proveedores"
+      titulo="ingresos"
       [columnas]="columnas"
       [dataSource]="dataSource"
+      [getValueFunctions]="valueFunctions"
       (addItem)="openDialog()"
       (editItem)="openDialog($event)"
       (deleteItem)="onDeleteItem($event)"
     >
 </app-base-table>
-
