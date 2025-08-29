@@ -1,0 +1,23 @@
+h1{
+    display: block;
+    margin: 20px auto 0px; 
+    text-transform: uppercase;
+}
+th{
+    text-transform: capitalize;
+}
+.espacio{
+    flex: 1 1 auto;
+}
+.eliminar{
+    color: red;
+}
+.eliminar:hover{
+    background-color: rgba(248, 79, 49, 0.158);
+}
+.agregar{
+    color: green;
+}
+.agregar:hover{
+    background-color: rgba(14, 166, 14, 0.158);
+}

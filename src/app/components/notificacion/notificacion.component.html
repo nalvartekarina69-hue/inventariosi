@@ -1,0 +1,44 @@
+<div class="dialog-container" [ngClass]="'dialog-' + data.style">
+  <!-- Título con ícono -->
+  <h2 mat-dialog-title class="dialog-title">
+    <mat-icon class="dialog-icon">{{ getIcon() }}</mat-icon>
+    {{ data.title }}
+  </h2>
+  
+  <!-- Contenido del mensaje -->
+  <mat-dialog-content class="dialog-content">
+    <p class="dialog-message">{{ data.message }}</p>
+  </mat-dialog-content>
+  
+  <!-- Botones según el tipo -->
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <!-- Solo botón Aceptar para notificaciones -->
+    @if (data.type === 'notification') {
+      <button mat-raised-button 
+              [color]="getButtonColor()"
+              (click)="onAccept()"
+              type="button"
+              class="action-button">
+        {{ data.confirmText || 'Aceptar' }}
+      </button>
+    }
+    
+    <!-- Botones Cancelar y Aceptar para confirmaciones -->
+    @if (data.type === 'confirmation') {
+      <button mat-flat-button
+              (click)="onCancel()"
+              type="button"
+              class="cancel-button">
+        {{ data.cancelText || 'Cancelar' }}
+      </button>
+      
+      <button mat-raised-button 
+              [color]="getButtonColor()"
+              (click)="onAccept()"
+              type="button"
+              class="action-button">
+        {{ data.confirmText || 'Aceptar' }}
+      </button>
+    }
+  </mat-dialog-actions>
+</div>

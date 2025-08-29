@@ -1,0 +1,12 @@
+
+mat-icon, span{
+    color: white;
+}
+mat-list-item.active{
+    background-color: rgb(248, 230, 230);    
+    margin-right: 0px;  
+}
+
+mat-icon.active, span.active{
+    color: rgba(201, 17, 63,1);
+}

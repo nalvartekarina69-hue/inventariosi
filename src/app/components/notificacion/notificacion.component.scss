@@ -1,0 +1,87 @@
+.dialog-container {
+    min-width: 320px;
+    padding: 8px;
+  }
+  
+  .dialog-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .dialog-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .dialog-content {
+    margin: 0;
+    padding: 0 0 20px 0;
+  }
+  
+  .dialog-message {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+  }
+  
+  .dialog-actions {
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .action-button, .cancel-button {
+    min-width: 80px;
+  }
+  
+  /* Estilos por tipo */
+  .dialog-success {
+    .dialog-title {
+      color: #2e7d32;
+    }
+    .dialog-icon {
+      color: #4caf50;
+    }
+  }
+  
+  .dialog-error {
+    .dialog-title {
+      color: #c62828;
+    }
+    .dialog-icon {
+      color: #f44336;
+    }
+  }
+  
+  .dialog-warning {
+    .dialog-title {
+      color: #f57c00;
+    }
+    .dialog-icon {
+      color: #ff9800;
+    }
+  }
+  
+  .dialog-info {
+    .dialog-title {
+      color: #1565c0;
+    }
+    .dialog-icon {
+      color: #2196f3;
+    }
+  }
+  
+  .dialog-danger {
+    .dialog-title {
+      color: #c62828;
+    }
+    .dialog-icon {
+      color: #f44336;
+    }
+  }

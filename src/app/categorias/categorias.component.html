@@ -1,0 +1,10 @@
+<app-base-table
+      titulo="categorias"
+      [columnas]="columnas"
+      [dataSource]="dataSource"
+      (addItem)="openDialog()"
+      (editItem)="openDialog($event)"
+      (deleteItem)="onDeleteItem($event)"
+    >
+</app-base-table>
+

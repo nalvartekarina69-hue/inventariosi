@@ -1,0 +1,10 @@
+<app-base-table
+      titulo="productos"
+      [columnas]="columnas"
+      [dataSource]="dataSource"
+      [getValueFunctions]="valueFunctions"
+      (addItem)="openDialog()"
+      (editItem)="openDialog($event)"
+      (deleteItem)="onDeleteItem($event)"
+    >
+</app-base-table>

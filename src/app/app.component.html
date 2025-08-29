@@ -1,0 +1,19 @@
+<app-navbar (collapsedChange)="onCollapsedChange($event)"></app-navbar>
+
+<mat-sidenav-container>
+    <mat-sidenav opened mode="side" [style.width]="sideNavWidth()">
+        <app-menu [collapsed]="collapsed()">
+
+        </app-menu>
+    </mat-sidenav>
+
+
+
+    <mat-sidenav-content [style.margin]="contentMargin()" [style.width]="contentWidth()">
+        <router-outlet />
+    </mat-sidenav-content>
+
+    
+</mat-sidenav-container>
+
+

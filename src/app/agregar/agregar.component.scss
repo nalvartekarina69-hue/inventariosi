@@ -1,0 +1,19 @@
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+mat-label{
+  text-transform: capitalize;
+}
+mat-dialog-content {
+  min-width: 350px;
+  padding: 20px 10px;
+  max-height: none !important;
+  height: auto; 
+}
+
+form {
+  display: flex;
+  flex-direction: column;    
+  padding-top: 10px;
+}

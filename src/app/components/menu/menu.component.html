@@ -1,0 +1,15 @@
+<mat-list>
+    @for (item of menuItems(); track $index){
+        <a>
+            <mat-list-item routerLink="{{item.route}}" routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact:true}">
+                <mat-icon routerLinkActive="active">
+                    {{item.icon}}
+                </mat-icon>
+                @if(!sideNavCollapsed()){
+                    <span routerLinkActive="active">{{item.label}}</span>
+                }
+            </mat-list-item>
+        </a>
+    }
+</mat-list>

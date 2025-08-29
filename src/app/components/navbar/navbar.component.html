@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="toggleCollapsed()">
+        <mat-icon>
+            menu
+        </mat-icon>
+    </button>
+
+    <span class="espacio"></span>
+
+    <button mat-button="outline" [matMenuTriggerFor]="usuario"> <img src="gatito.webp">Usuario</button>
+
+    <mat-menu #usuario>
+        <a mat-menu-item><mat-icon matSuffix >exit_to_app</mat-icon>Salir</a>
+    </mat-menu>
+</mat-toolbar>
