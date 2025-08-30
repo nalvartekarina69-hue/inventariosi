@@ -21,6 +21,11 @@ export class CategoriasService {
       id: 3,
       nombre: 'FIDEOS, PASTAS Y SALSAS',
       descripcion: 'todo fideos, pastas, cremas, salsas'
+    },
+    {
+      id: 4,
+      nombre: 'ACEITES',
+      descripcion: 'todo tipo de aceites soya, oliva, arroz'
     }
   ]);
 

@@ -1,9 +1,9 @@
-<h2 mat-dialog-title>{{data.id ? 'Editar' : 'Agregar'}} Ingreso</h2>
+<h2 mat-dialog-title>{{data.id ? 'Editar' : 'Agregar'}} {{tituloDialog}}</h2>
 <mat-dialog-content>
     <form [formGroup]="form">
         @for(column of columnas; track $index){
             @if(column === 'productoId'){
-                <mat-form-field appearance="outline" class="full-width">
+                <mat-form-field appearance="outline" class="full-width div1">
                     <mat-label>Producto</mat-label>
                     <mat-select [formControlName]="column">
                         @for(producto of productos; track producto.id){
@@ -12,7 +12,7 @@
                     </mat-select>
                 </mat-form-field>
             }@else if(column === 'proveedorId'){
-                <mat-form-field appearance="outline" class="full-width">
+                <mat-form-field appearance="outline" class="full-width div2">
                     <mat-label>Proveedor</mat-label>
                     <mat-select [formControlName]="column">
                         @for(proveedor of proveedores; track proveedor.id){
@@ -33,7 +33,6 @@
                 <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Fecha</mat-label>
                     <input matInput type="date" [formControlName]="column">
-                    
                 </mat-form-field>
             } @else {
                 <mat-form-field appearance="outline" class="full-width">

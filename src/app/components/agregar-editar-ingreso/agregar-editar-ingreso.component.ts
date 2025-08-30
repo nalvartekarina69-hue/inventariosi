@@ -13,16 +13,19 @@ import { Proveedores } from '../../proveedores';
 import { ProveedoresService } from '../../services/proveedores.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
+interface DialogData extends Ingresos {
+  tipo?: 'ingresos' | 'salidas';
+}
 
 @Component({
   selector: 'app-agregar-editar-ingreso',
   imports: [MatButtonModule, MatDialogModule,
-    MatInputModule,ReactiveFormsModule, MatSelectModule,MatDatepickerModule],
+    MatInputModule, ReactiveFormsModule, MatSelectModule, MatDatepickerModule],
   templateUrl: './agregar-editar-ingreso.component.html',
   styleUrl: './agregar-editar-ingreso.component.scss'
 })
 export class AgregarEditarIngresoComponent {
-  public data = inject(MAT_DIALOG_DATA) as Ingresos;
+  public data = inject(MAT_DIALOG_DATA) as DialogData;
   private dialogRef = inject(MatDialogRef<AgregarEditarIngresoComponent>);
   private fb = inject(FormBuilder);
   private categoriasService = inject(CategoriasService);
@@ -31,12 +34,19 @@ export class AgregarEditarIngresoComponent {
   
   columnas: string[] = ['productoId', 'proveedorId','cantidad','precioCompra', 'precioVenta', 'categoriaId','fecha'];
   form: FormGroup;
+  
+  // Propiedades para determinar el tipo
+  tipoOperacion: 'ingresos' | 'salidas' = 'ingresos';
+  tituloDialog: string = '';
 
   categorias: Categorias[] = [];
   productos: Productos[] = [];
   proveedores: Proveedores[] = [];
   
   constructor() {
+    this.tipoOperacion = this.data?.tipo || 'ingresos';
+    this.tituloDialog = this.tipoOperacion === 'salidas' ? 'Salida' : 'Ingreso';
+    
     this.categorias = this.categoriasService.categorias;
     this.productos = this.productosService.productos;
     this.proveedores = this.proveedoresService.proveedores;
@@ -49,7 +59,6 @@ export class AgregarEditarIngresoComponent {
       precioVenta: [this.data?.precioVenta || '', Validators.required],
       categoriaId: [this.data?.categoriaId || '', Validators.required],
       fecha: [this.data?.fecha || '', Validators.required]
-
     });
   }
   
@@ -57,7 +66,7 @@ export class AgregarEditarIngresoComponent {
     if (this.form.valid) {
       const formData = this.form.value;
       const result: Ingresos = {
-        id: this.data?.id || 0, // 0 para nuevos productos
+        id: this.data?.id || 0, // 0 para nuevos registros
         ...formData
       };
       
@@ -70,4 +79,3 @@ export class AgregarEditarIngresoComponent {
     }
   }
 }
-

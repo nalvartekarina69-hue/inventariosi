@@ -6,16 +6,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-
+import { DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-base-table',
   imports: [MatTableModule, MatCardModule, MatFormFieldModule, 
-    MatIconModule, MatPaginatorModule, MatInputModule, MatButtonModule],
+    MatIconModule, MatPaginatorModule, MatInputModule, MatButtonModule, DatePipe],
   templateUrl: './base-table.component.html',
   styleUrl: './base-table.component.scss'
 })
 export class BaseTableComponent<T> {
+  
+
   @Input() titulo: string = '';
   @Input() columnas: string[] = [];
   @Input() dataSource: MatTableDataSource<T> = new MatTableDataSource;

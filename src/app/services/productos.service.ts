@@ -35,6 +35,33 @@ private _productos = signal<Productos[]>([
         precioCompra: 2.10,
         precioVenta: 1.40,
         categoriaId: 1,
+      },
+      {
+        id: 4,
+        nombre: 'FIDEOS TORNILLO DON VICTORIO X 250G',
+        codigo: 23456789,
+        stock: 10,
+        precioCompra: 2.10,
+        precioVenta: 2.50,
+        categoriaId: 3,
+      },
+      {
+        id: 5,
+        nombre: 'LECHE LAIVE X 170G',
+        codigo: 23474789,
+        stock: 10,
+        precioCompra: 2.10,
+        precioVenta: 2.40,
+        categoriaId: 2,
+      },
+      {
+        id: 6,
+        nombre: 'JAMON DE CERDO SAN FERNANDO X 24G',
+        codigo: 15474789,
+        stock: 2,
+        precioCompra: 2.10,
+        precioVenta: 1.40,
+        categoriaId: 1,
       }
     
 ]);

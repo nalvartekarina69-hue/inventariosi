@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<mat-card>
+    <mat-card-header mat-card-title >
+       <h1>Sistema de Inventario</h1> 
+    </mat-card-header>
+    <mat-card-content>
+        <div class="content"> 
+            @for(list of listas; track $index){
+                <div class="contenedor">
+                    <h2>{{ list.titulo }}</h2>
+                    <strong>{{list.array.length}}</strong>
+                </div>
+            }
+        </div>
+    </mat-card-content>
+</mat-card>

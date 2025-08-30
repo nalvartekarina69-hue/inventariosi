@@ -1,0 +1,15 @@
+h1{
+    display: block;
+    margin: 20px auto;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
